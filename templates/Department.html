@@ -1,0 +1,28 @@
+
+{% extends "base.html" %}
+{% block header %}
+
+    {%include 'header.html' %}
+    
+{% endblock header %}
+
+{% block content %}
+    <h1 style="text-align:center;padding-top:50px">Department</h1>
+
+    <table border="1" style="border-collapse: collapse; margin:auto; padding-top:50px">
+        <tr>
+            <th>Department</th>
+            <th>Description</th>
+        </tr>
+        {% for item in departments %}
+
+        <tr style="text-align:center;margin:auto">
+            <td style="padding-top:35px">{{item}}</td>
+            <td>{{item.description}}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+
+
+{% endblock content %}

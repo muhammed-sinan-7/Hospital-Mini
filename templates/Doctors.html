@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header %}
+
+    {%include 'header.html' %}
+    
+{% endblock header %}
+
+{% block content %}
+        <h1 style="text-align: center;">Doctors</h1>
+    <table style="margin: auto;border-collapse:collapse" width="80%" border="1">
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Department</th>
+            <th>Experience</th>
+            <th>Age</th>
+        </tr>
+        {% for doctor in doctors%}
+        <tr style="text-align: center;">
+            <td>{{doctor.name}}</td>
+            <td><img width="200px" src="{{doctor.image.url}}" alt=""></td>
+            <td>{{doctor.department}}</td>
+            <td>{{doctor.experience}}</td>
+            <td>{{doctor.age}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+{% endblock content %}
