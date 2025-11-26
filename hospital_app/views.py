@@ -2,7 +2,11 @@ from django.shortcuts import render
 from . models import Doctors,Department
 # Create your views here.
 def home(request):
-    return render(request,'Home.html')
+    visits = int(request.COOKIES.get('visits',0))
+    visits = visits+1
+    response=render(request,'Home.html',{'visits':visits})
+    response.set_cookie('visits',visits)
+    return response
 
 def department(request):
     departments = Department.objects.all()
